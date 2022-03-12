@@ -1,0 +1,7 @@
+<h1>{{ action }} un produit</h1>
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'col-lg-5' }}) }}
+        {{ form_row(form) }}
+<button type="submit" class="btn btn-primary">{{ action|default('Valider') }}</button>
+{{ form_end(form) }}

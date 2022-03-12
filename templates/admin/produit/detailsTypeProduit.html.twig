@@ -1,0 +1,35 @@
+{% extends "admin/layout.html.twig" %}
+{% block body %}
+    <div class="container">
+        <div>
+            <H2>Détails des type de produits  </H2>
+
+            <div>
+                <table class="table">
+                    <caption>Détails des type de produits  </caption>
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>libellee</th><th>nombre</th><th>Prix Max </th><th>Prix Min</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+            {% if typeProduits is not empty %}
+                {% for typeProduit in typeProduits  %}
+                    <tr>
+                        <td>{{ typeProduit.libelle }} </td>
+                        <td>{{ typeProduit.nbProduits }}</td>
+                        <td>{{ typeProduit.PrixMax }}</td>
+                        <td>{{ typeProduit.PrixMin }}</td>
+                    </tr>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr class="table-warning"><td>Pas de type de Produit</td></tr>
+            {% endif %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

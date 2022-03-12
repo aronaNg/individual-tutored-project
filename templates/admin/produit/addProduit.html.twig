@@ -1,0 +1,7 @@
+{% extends "admin/layout.html.twig" %}
+{% block body %}
+    <div class="container">
+            <legend>Créer un produit</legend>
+            {{ include('admin/produit/_formProduit.html.twig', {action: 'Créer'}) }}
+    </div>
+{% endblock %}

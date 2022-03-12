@@ -1,0 +1,13 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Edit TypeProduit{% endblock %}
+
+{% block body %}
+    <h1>Edit TypeProduit</h1>
+
+    {{ include('admin/type_produit/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_type_produit_index') }}" class="btn btn-primary m-1 p-1">back to list</a>
+
+    {{ include('admin/type_produit/_delete_form.html.twig') }}
+{% endblock %}

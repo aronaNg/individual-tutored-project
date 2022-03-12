@@ -1,0 +1,38 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}TypeProduit index{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Les types de produits</h1>
+    <a href="{{ path('type_produit_new') }}">Créer un nouveau produit</a>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libellé</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_produit in type_produits %}
+            <tr>
+                <td>{{ type_produit.id }}</td>
+                <td>{{ type_produit.libelle }}</td>
+                <td>
+                    <a href="{{ path('type_produit_show', {'id': type_produit.id}) }}">voir</a>
+                    <a href="{{ path('type_produit_edit', {'id': type_produit.id}) }}">éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+{% endblock %}

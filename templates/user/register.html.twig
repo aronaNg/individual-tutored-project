@@ -1,0 +1,19 @@
+{% extends 'client/layout_client.html.twig' %}
+{% block body %}
+    <h1>Creer votre compte </h1><br><br>
+    {{ form_start(form) }}
+    <div class="form-group">
+        {{ form_row(form.username,{'attr':{'class':'form-control'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.email,{'attr':{'class':'form-control'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.plainPassword.first,{'attr':{'class':'form-control'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.plainPassword.second,{'attr':{'class':'form-control'}}) }}
+    </div><br><br>
+    <button class="btn btn-success" type="submit">Enregistrer</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}TypeProduit{% endblock %}
+
+{% block body %}
+    <h1>Les Types de Produit</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_produit.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ type_produit.libelle }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_type_produit_index') }}" class="btn btn-primary m-1 p-1">retour à la liste de produit</a>
+
+    <a href="{{ path('type_produit_edit', {'id': type_produit.id}) }}" class="btn btn-primary m-1 p-1">edit</a>
+    <div class="btn btn-primary m-1 p-1">  {{ include('admin/type_produit/_delete_form.html.twig') }}</div>
+
+{% endblock %}

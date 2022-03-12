@@ -1,0 +1,11 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}New TypeProduit{% endblock %}
+
+{% block body %}
+    <h1>Create new TypeProduit</h1>
+
+    {{ include('admin/type_produit/_form.html.twig') }}
+
+    <a href="{{ path('admin_type_produit_index') }}" class="btn btn-primary m-1 p-1">back to list</a>
+{% endblock %}

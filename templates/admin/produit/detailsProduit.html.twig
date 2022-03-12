@@ -1,0 +1,33 @@
+{% extends "admin/layout.html.twig" %}
+{% block body %}
+    <div class="container">
+        <div>
+            <H2>Détails du produit {{ produit.nom }} </H2>
+
+            <br>
+            <ul>
+                <li>nom : {{ produit.nom }} </li>
+                <li>prix : {{ produit.prix }}</li>
+                <li>date Lancement : {%  if produit.dateLancement is not null %}
+                        {{produit.dateLancement | date('d/m/Y') }} {% else %}pas de date
+                    {% endif %}</li>
+                <li>stock : {{produit.stock| default('pas de stock')}}</li>
+            </ul>
+
+            <br>
+            <ul>
+                <li>nbr. ventes/semaine :       Chiffre Affaire : </li>
+                <li>nbr. ventes/mois :       Chiffre Affaire : </li>
+                <li>nbr. ventes/an :       Chiffre Affaire : </li>
+            </ul>
+
+            {%  if produit.photo is not empty %}
+                <img style="width:200px;height:200px"  src="{{asset('images/')}}{{produit.photo}}"  alt="image du produit" >
+            {% else %} <img style="width:200px;height:200px"  src="{{asset('images/')}}no_photo.jpeg"  alt="image du produit" >
+            {% endif %}
+
+            <br>
+            <a href="{{ path('admin_produit_edit', {id: produit.id}) }}" class="btn btn-primary">modifier</a>
+        </div>
+    </div>
+{% endblock %}
