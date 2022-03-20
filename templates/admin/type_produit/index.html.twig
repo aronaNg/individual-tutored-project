@@ -5,9 +5,9 @@
 {% block body %}
 <div class="container">
     <h1>Les types de produits</h1>
-    <a href="{{ path('type_produit_new') }}">Créer un nouveau produit</a>
+    <a href="{{ path('type_produit_new') }}" class="btn btn-outline-success btn-lg mb-3">Créer un nouveau produit</a>
     <br>
-    <table class="table">
+    <table class="table table-striped" id="matable">
         <thead>
             <tr>
                 <th>Id</th>
@@ -21,8 +21,8 @@
                 <td>{{ type_produit.id }}</td>
                 <td>{{ type_produit.libelle }}</td>
                 <td>
-                    <a href="{{ path('type_produit_show', {'id': type_produit.id}) }}">voir</a>
-                    <a href="{{ path('type_produit_edit', {'id': type_produit.id}) }}">éditer</a>
+                    <a href="{{ path('type_produit_show', {'id': type_produit.id}) }} " class="btn btn-success">Voir</a>
+                    <a href="{{ path('type_produit_edit', {'id': type_produit.id}) }}" class="btn btn-primary">Éditer</a>
                 </td>
             </tr>
         {% else %}

@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
-
+use \DateTime;
 class CommandeController extends AbstractController
 {
     /**
@@ -43,7 +43,7 @@ class CommandeController extends AbstractController
         $lignes_panier=$this->getDoctrine()->getRepository(Panier::class)->findBy(['user'=>$this->getUser()]);
         $commande = new Commande();
         $commande->setUser($this->getUser());
-        $commande->setDate(new\DateTime());
+        $commande->setDate(new DateTime());
         $commande->setEtat($this->getDoctrine()->getRepository(Etat::class)->findOneBy(['nom'=>'En attente']));
         $this->getDoctrine()->getManager()->persist($commande);
 

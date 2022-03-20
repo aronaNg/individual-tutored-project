@@ -1,6 +1,6 @@
 {#https://getbootstrap.com/docs/5.0/components/navbar/#}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"><span style="color:#00ff40;">Client </span> Sen Jaba</a>
+    <a class="navbar-brand" href="{{ path('client_panier_index') }}"><span style="color:#00ff40;">Client </span> Sen Jaba</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,7 +13,7 @@
                     Commandes
                 </a>
                 <div class="dropdown-menu" aria-labelledby="DropdownCommandes">
-                    <a class="dropdown-item" href="{{ path('client_panier_index') }}">Faire une commande(Produits/panier)</a>
+                    <a class="dropdown-item" href="{{ path('client_panier_index') }}">Faire une commande (Produits/panier)</a>
                 </div>
             </li>
 
@@ -39,7 +39,7 @@
             </li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav ms-auto">
             <!-- Authentication Links -->
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <span class="navbar-text mr-2 h5">

@@ -1,6 +1,6 @@
 {% extends 'client/layout_client.html.twig' %}
 
-{% block title %}Profil de {{ app.user.username }}{% endblock %}
+{% block title %}Mon Profil{% endblock %}
 
 {% block body %}
     <div class="grix xs4 container">
@@ -10,7 +10,7 @@
             </div>
         {% endfor %}
         <div class="col-xs4">
-            <h1>Profil de {{ app.user.username }}</h1>
+            <h1>Mon Profil</h1>
         </div>
         <div class="col-xs1">Nom d'utilisateur:</div>
         <div class="col-xs3"> <h3>{{ app.user.username }}</h3></div><br>
