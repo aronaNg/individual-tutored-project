@@ -1,6 +1,73 @@
 {% extends "client/layout_client.html.twig" %}
 {% block body %}
     <div class="container">
+        <div class="row align-self-right">
+            <div class="table" style="border: solid #8959A8 1px ">
+                <div class="row align-self-right">
+                    <div class="col-5 bg-light p-3">
+                        <h3>Panier</h3>
+                    </div>
+                </div>
+                <div>
+                    <table class="table table-striped">
+                        <caption>Récapitulatif de mon panier</caption>
+                        <thead class="thead-dark">
+                        <tr>
+                            <th>User</th>
+                            <th>Produit ajouté </th>
+                            <th>Quantité </th>
+                            <th>Date achat</th>
+                            <th>Supprimer la quantité</th>
+                            <th>Diminuer la quantité</th>
+                            <th>Augmenter la quantité</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% if monpanier is not empty %}
+                            {% for panier in monpanier %}
+                                <tr style="border: solid #56a83e 2px ">
+                                    <td>
+                                        {{panier.user.username}}
+                                    </td>
+                                    <td>
+                                        {{panier.produit}}
+                                    </td>
+                                    <td>{{panier.quantite}}</td>
+                                    <td>{{panier.dateAchat | date("d/m/Y")}}</td>
+                                    <td>
+                                        <a class="btn btn-danger" href="{{ path('panier_delete', {id: panier.produit.id}) }}" onclick="return confirm('Etes-vous sur de vouloir supprimer ce produit ?');">
+                                            <i class="fas fa-trash"></i>
+                                            Supprimer
+                                        </a>
+
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('panier_v1_diminuer', {id: panier.produit.id}) }}" class="btn btn-danger float-right">
+                                            <i class="fas fa-shopping-cart md-2"></i>
+                                            -
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('panier_v1_augmenter', {id: panier.produit.id}) }}" class="btn btn-success float-right">
+                                            <i class="fas fa-shopping-cart md-2"></i>+
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr class="table-warning text-center"><td>Pas de Panier</td></tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                    <a href="{{ path('commande_show') }}" class="btn btn-success float-right">
+                        <i class="fas fa-shopping-cart mr-1"></i>
+                        Valider
+                    </a>
+                </div>
+            </div>
+        </div>
         <div class="bg-light p-3">
             <h1>Les produits</h1>
         </div>

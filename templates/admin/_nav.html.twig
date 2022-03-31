@@ -34,7 +34,14 @@
                     <a class="dropdown-item" href="{{ path('admin_type_produit_index') }}"> Gestion des types de produit </a>
                 </div>
             </li>
-
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="DropdownStat" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Voir les commandes clients
+                </a>
+                <div class="dropdown-menu" aria-labelledby="DropdownStat">
+                    <a class="dropdown-item" href="{{ path('commande_showAllCommandes')  }}">Voir les commandes</a>
+                </div>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="DropdownStat" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Voir les statistiques

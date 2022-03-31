@@ -6,9 +6,11 @@ use App\Entity\Produit;
 use App\Entity\TypeProduit;
 use App\Form\ContactType;
 //use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 //use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Twig\Environment;
@@ -31,17 +33,17 @@ class PanierController extends AbstractController
     /**
      * @Route("/client/contact", name="client_contact")
      */
-    public function contact(Request $request)
+    public function contact(Request $request, MailerInterface $mailer)
     {
         $form = $this->createForm(ContactType::class);
 
         $contact = $form->handleRequest($request);
-    /*    if($form->isSubmitted() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid()){
             $email= (new TemplatedEmail())
                 ->from($contact->get('email')->getData())
                 ->to("ngomarona51@gmail.com")
                 ->subject('Contact depuis le site Sen Jaba')
-                ->htmlTemplate('contact/email.html.twig')
+                ->htmlTemplate('client/contact/email.html.twig')
                 ->context([
                     'mail' => $contact->get('email')->getData(),
                     'sujet' => $contact->get('sujet')->getData(),
@@ -54,7 +56,7 @@ class PanierController extends AbstractController
             $this->addFlash('message', 'mail de contact envoyé');
             return $this->redirectToRoute('client_contact');
 
-        }*/
+        }
 
         return $this->render('client/contact/contact.html.twig', [
             'form' => $form->createView()
