@@ -53,7 +53,7 @@ class PanierController extends AbstractController
             ;
 
             $mailer->send($email);
-            $this->addFlash('message', 'mail de contact envoyé');
+            $this->addFlash('messagem', 'Message  envoyé avec succès');
             return $this->redirectToRoute('client_contact');
 
         }

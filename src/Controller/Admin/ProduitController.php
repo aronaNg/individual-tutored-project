@@ -64,7 +64,7 @@ class ProduitController extends AbstractController
             $data = $form->getData();
             $this->getDoctrine()->getManager()->persist($produit);
             $this->getDoctrine()->getManager()->flush();
-            $this->addFlash('notice', 'Produit ' . $produit->getNom() . ' ajouté');
+            $this->addFlash("success","Produit ". $produit->getNom()." ajouté avec succès");
             return $this->redirectToRoute('admin_produit_show');
         }
 
@@ -91,7 +91,7 @@ class ProduitController extends AbstractController
             $data = $form->getData();
             $this->getDoctrine()->getManager()->persist($produit);
             $this->getDoctrine()->getManager()->flush();
-            $this->addFlash('notice', 'Version 3 : Produit ' . $produit->getNom() . ' ajouté');
+           $this->addFlash("info","Produit ". $produit->getNom()." modifié avec succès");
             return $this->redirectToRoute('admin_produit_show');
         }
 
@@ -116,6 +116,7 @@ class ProduitController extends AbstractController
         if (!$produit)  throw $this->createNotFoundException('No produit found for id '.$id);
         $entityManager->remove($produit);
         $entityManager->flush();
+        $this->addFlash("error","Produit ". $produit->getNom()." supprimé");
         return $this->redirectToRoute('admin_produit_show');
     }
 

@@ -55,8 +55,10 @@ class CommandeController extends AbstractController
             $ligne_commande->setPrix($ligne_panier->getProduit()->getPrix());
             $this->getDoctrine()->getManager()->persist($ligne_commande);
             $this->getDoctrine()->getManager()->remove($ligne_panier);
+
         }
         $this->getDoctrine()->getManager()->flush();
+        $this->addFlash("success","Commande ajoutée avec succès");
         return $this->redirectToRoute('client_panier_index');
     }
 
@@ -72,8 +74,9 @@ class CommandeController extends AbstractController
             $produitchoisi->setStock($produitchoisi->getStock()+$ligne_panier->getQuantite());
             $this->getDoctrine()->getManager()->remove($ligne_panier);
             $this->getDoctrine()->getManager()->persist($produitchoisi);
-            $this->getDoctrine()->getManager()->flush();
         }
+        $this->getDoctrine()->getManager()->flush();
+        $this->addFlash("error","Commande supprimée");
         return $this->redirectToRoute('client_panier_index');
     }
 
