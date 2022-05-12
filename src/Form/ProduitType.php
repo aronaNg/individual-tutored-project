@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Produit;
+use Doctrine\DBAL\Types\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Date;
 
 class ProduitType extends AbstractType
 {

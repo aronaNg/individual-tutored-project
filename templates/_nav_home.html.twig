@@ -1,6 +1,6 @@
 {#https://getbootstrap.com/docs/5.0/components/navbar/#}
 <nav class="navbar navbar-expand-lg navbar-dark" style="background: teal;">
-    <a class="navbar-brand" href="#">Sen Jaba</a>
+    <a class="navbar-brand mx-3" href="#">Sen Jaba</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -31,14 +31,14 @@
                 </a>
 
             {% else %}
-                <a class="btn btn-success" type="button" href="{{path('app_login') }}">
+                <a class="btn btn-success mx-1 my-1" type="button" href="{{path('app_login') }}">
                     Se connecter
                 </a>
-                <a class="btn btn-success" type="button" href="{{ path('user_registration') }}">
+                <a class="btn btn-success mx-1 my-1" type="button" href="{{ path('user_registration') }}">
                     S'inscrire
                 </a>
 
-                <a class="btn btn-success" type="button" href="{#{path('changePassword') }#}">
+                <a class="btn btn-success mx-1 my-1" type="button" href="{#{path('changePassword') }#}">
                     Mot de passe oublié
                 </a>
             {% endif %}
