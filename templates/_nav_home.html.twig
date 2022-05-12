@@ -26,7 +26,7 @@
                     {% if is_granted('ROLE_ADMIN') %} (role : Admin )
                     {% elseif is_granted('ROLE_USER') %} (role : User ) {% endif %}
             </span>
-                <a class="btn btn-outline-success" type="button" href="{{path('app_logout') }}">
+                <a class="btn btn-outline-success mx-1" type="button" href="{{path('app_logout') }}">
                     Se déconnecter
                 </a>
 
