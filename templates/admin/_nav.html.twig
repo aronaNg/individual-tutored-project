@@ -6,16 +6,6 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="DropdownCommandes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Commandes
-                </a>
-                <div class="dropdown-menu" aria-labelledby="DropdownCommandes">
-                    <a class="dropdown-item" href="{#{  path('gestion_commande_show') }#}">Gestions des commandes</a>
-                </div>
-            </li>
-
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="DropdownClient" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Clients
@@ -58,7 +48,7 @@
                 <span class="navbar-text mr-2 h5">
                     Bonjour {{ app.user.username }}
                     {% if is_granted('ROLE_ADMIN') %} (role : Admin )
-                    {% elseif is_granted('ROLE_CLIENT') %} (role : Client ) {% endif %}
+                    {% elseif is_granted('ROLE_USER') %} (role : Client ) {% endif %}
             </span>
                 <a class="btn btn-success mx-1 my-1" type="button" href="{{path('app_logout') }}">
                     Se déconnecter
